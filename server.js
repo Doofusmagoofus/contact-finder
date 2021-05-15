@@ -1,8 +1,15 @@
 //Init express server
 const express = require('express');
+const connectDB = require('./config/db');
 
 //Init express in app
 const app = express();
+
+//Connect database
+connectDB();
+
+//Init middleware
+app.use(express.json({ extended: false }));
 
 //endpoint to test
 app.get('/', (req, res) =>
